@@ -1,9 +1,9 @@
 import datetime
 from decimal import Decimal
-from typing import List, Dict
+from typing import List, Dict, TYPE_CHECKING
 
 from dateutil.relativedelta import relativedelta
-from typing import TYPE_CHECKING
+
 from .models import Payment
 
 if TYPE_CHECKING:

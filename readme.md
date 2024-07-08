@@ -1,6 +1,6 @@
 # Loan Payment Schedule API
 
-This project provides a backend service to generate and modify a loan payment schedule using Docker, Django, Django REST Framework, SQLite, and optionally Redis.
+This project provides a backend service to generate and modify a loan payment schedule using Docker, Django, Django REST Framework, and optionally SQLite.
 
 ## Features
 
@@ -10,10 +10,9 @@ This project provides a backend service to generate and modify a loan payment sc
 ## Technologies Used
 
 - Docker
-- Django
 - Django REST Framework
-- PostgreSQL (via Docker)
-- SQLite (default database)
+- PostgreSQL
+- SQLite (if no psql)
 
 ## Setup and Running
 
@@ -26,8 +25,8 @@ This project provides a backend service to generate and modify a loan payment sc
 1. **Clone the repository**
 
     ```sh
-    git clone https://github.com/your-repo/loan-payment-schedule.git
-    cd loan-payment-schedule
+    git clone https://github.com/sa1am8/tt_CompassWay
+    cd loan_schedule
     ```
 
 2. **Create a `.env` file**
@@ -41,9 +40,10 @@ This project provides a backend service to generate and modify a loan payment sc
     DATABASE_URL=postgres://myuser:mypassword@db:5432/mydatabase
     ```
 
-3. **Build and run the Docker containers**
+3. **Build and run the Docker containers from `compose` dir**
 
     ```sh
+    cd compose
     docker-compose up --build
     ```
 
@@ -52,7 +52,7 @@ This project provides a backend service to generate and modify a loan payment sc
     Open a new terminal and run:
 
     ```sh
-    docker-compose exec web pipenv run python manage.py migrate
+    docker-compose exec api poetry run python manage.py migrate
     ```
 
 5. **Access the application**
@@ -122,4 +122,4 @@ This project provides a backend service to generate and modify a loan payment sc
 To run tests, execute the following command:
 
 ```sh
-docker-compose exec web pipenv run python manage.py test
+docker-compose exec api poetry run python manage.py test
