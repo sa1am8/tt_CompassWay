@@ -26,11 +26,11 @@ def generate_payment_schedule(
     emi: Decimal = (i * amount) / (1 - (1 + i) ** -number_of_payments)
 
     balance: Decimal = amount
-    for i in range(number_of_payments):
+    for period_interval in range(number_of_payments):
         interest: Decimal = balance * i
         principal: Decimal = emi - interest
         balance -= principal
-        date = loan_start_date + period_delta * i
+        date = loan_start_date + period_delta * period_interval
         schedule.append({
             'date': date,
             'principal': round(principal, 2),
